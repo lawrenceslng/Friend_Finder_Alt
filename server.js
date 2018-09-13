@@ -103,12 +103,12 @@ app.post('/results', function(req, res) {
           if(diff < currentDiff)
           {
             console.log("changing closest match to: " + results[i].full_name);
-            closestMatch =  results[i].full_name;
+            closestMatch =  results[i];
             currentDiff = diff;
           }
       }
       console.log(closestMatch);
-      res.send("Your closest Match is " + closestMatch);
+      res.render('pages/result', {data: closestMatch});
     });
   });
 });
