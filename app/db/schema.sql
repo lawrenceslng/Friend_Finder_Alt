@@ -28,3 +28,13 @@ CREATE TABLE scores(
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE users_2(
+    id INT NOT NULL AUTO_INCREMENT,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL, 
+    score INT NOT NULL,
+    UNIQUE (full_name),
+	UNIQUE (email),
+	PRIMARY KEY (id)
+);
