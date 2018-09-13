@@ -6,15 +6,15 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var methodOverride = require('method-override');
-var bcrypt = require('bcryptjs');
+// var bcrypt = require('bcryptjs');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var path = require("path");
 
 app.use(methodOverride('_method'));
 app.use(session({ secret: 'app', cookie: { maxAge: 1*1000*60*60*24*365 }}));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -41,5 +41,21 @@ var connection = mysql.createConnection({
   database: process.env.DB_NAME    //TBD
 });
 
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/app/public/index.html'));
+  console.log("getting root");
+});
+
+
+app.get('/survey', function(req, res) {
+  res.sendFile(path.join(__dirname, '/app/public/survey.html'));
+  console.log("getting survey");
+});
+
+app.post('/results', function(req, res) {
+  console.log(req.body);
+  // res.sendFile(path.join(__dirname, '/app/public/survey.html'));
+  // console.log("getting survey");
+});
 
 app.listen(3000);

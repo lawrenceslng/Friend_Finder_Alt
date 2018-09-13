@@ -18,13 +18,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">Home</a>
-                    <a class="nav-item nav-link  active" href="#">Survey<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link  active" href="/survey">Survey<span class="sr-only">(current)</span></a>
                 </div>
             </div>
         </nav>
         <div class = "content">
-            <form>
+            <form class="survey" method="POST" action="/results">
                 <div class = "form-group">
                     <label for="name">Full Name</label>
                     <input type="text" class="form-control" id="name" name="full_name" placeholder="Enter your full name">
@@ -84,7 +84,7 @@
                 </div>
                 <div class = "form-group">
                     <h6>Question 5</h6>
-                    <label for="Question5">Example select</label>
+                    <label for="Question5">I love food!</label>
                         <select class="form-control" id="Question5">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
@@ -94,8 +94,9 @@
                         </select>
                 </div>
                 <div class = "form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                    <h6>Question 6</h6>
+                    <label for="Question6">I love challenging myself with new activities!</label>
+                        <select class="form-control" id="Question6">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -103,47 +104,51 @@
                             <option>5 (Strongly Agree)</option>
                         </select>
                 </div>
-                        <div class = "form-group">
-                                <label for="exampleFormControlSelect1">Example select</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>1 (Strongly Disagree)</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5 (Strongly Agree)</option>
-                                    </select>
-                            </div>
-                            <div class = "form-group">
-                                    <label for="exampleFormControlSelect1">Example select</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>1 (Strongly Disagree)</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                          <option>4</option>
-                                          <option>5 (Strongly Agree)</option>
-                                        </select>
-                                </div>
-                                        <div class = "form-group">
-                                                <label for="exampleFormControlSelect1">Example select</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                      <option>1 (Strongly Disagree)</option>
-                                                      <option>2</option>
-                                                      <option>3</option>
-                                                      <option>4</option>
-                                                      <option>5 (Strongly Agree)</option>
-                                                    </select>
-                                            </div>
-                                            <div class = "form-group">
-                                                    <label for="exampleFormControlSelect1">Example select</label>
-                                                        <select class="form-control" id="exampleFormControlSelect1">
-                                                          <option>1 (Strongly Disagree)</option>
-                                                          <option>2</option>
-                                                          <option>3</option>
-                                                          <option>4</option>
-                                                          <option>5 (Strongly Agree)</option>
-                                                        </select>
-                                                </div>
-
+                <div class = "form-group">
+                    <h6>Question 7</h6>
+                    <label for="Question7">I do not get angry or impatient easily.</label>
+                        <select class="form-control" id="Question7">
+                            <option>1 (Strongly Disagree)</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5 (Strongly Agree)</option>
+                        </select>
+                </div>
+                <div class = "form-group">
+                    <h6>Question 8</h6>
+                    <label for="Question8">I do not find it difficult to express myself to new acquaintances.</label>
+                        <select class="form-control" id="Question8">
+                            <option>1 (Strongly Disagree)</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5 (Strongly Agree)</option>
+                        </select>
+                </div>
+                <div class = "form-group">
+                    <h6>Question 9</h6>
+                    <label for="Question9">I do not pretend to be someone I am not when meeting people for the fist time.</label>
+                        <select class="form-control" id="Question9">
+                            <option>1 (Strongly Disagree)</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5 (Strongly Agree)</option>
+                        </select>
+                </div>
+                <div class = "form-group">
+                    <h6>Question 10</h6>
+                    <label for="Question10">I love making new friends!</label>
+                        <select class="form-control" id="Question10">
+                            <option>1 (Strongly Disagree)</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5 (Strongly Agree)</option>
+                        </select>
+                </div>
+                <button class="btn" type="submit">Submit Answers!</button>
             </form>
             
         </div>
