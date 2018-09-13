@@ -96,7 +96,7 @@ app.post('/results', function(req, res) {
       var diff = 0;
       var currentDiff = 50;
       var closestMatch = "";
-      for(var i = 0; i < results.length; i++)
+      for(var i = 0; i < results.length-1; i++)
       {
           diff = Math.abs(results[i].total_score - totalScore);
           console.log(diff);
@@ -108,6 +108,7 @@ app.post('/results', function(req, res) {
           }
       }
       console.log(closestMatch);
+      res.send("Your closest Match is " + closestMatch);
     });
   });
 });
