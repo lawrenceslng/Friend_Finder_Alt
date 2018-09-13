@@ -4,7 +4,7 @@
     <title>Friend-Finder Survey</title>
     <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/style.css">
+    <!-- <link rel="stylesheet" href="/assets/style.css"> -->
 	<style>
 
 	</style>
@@ -24,7 +24,7 @@
             </div>
         </nav>
         <div class = "content">
-            <form class="survey" method="POST" action="/results">
+            <form class="survey">
                 <div class = "form-group">
                     <label for="name">Full Name</label>
                     <input type="text" class="form-control" id="name" name="full_name" placeholder="Enter your full name">
@@ -41,7 +41,7 @@
                 <div class = "form-group">
                     <h6>Question 1</h6>
                     <label for="Question1">I love the outdoors.</label>
-                        <select class="form-control" id="Question1">
+                        <select class="form-control" id="question1" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -52,7 +52,7 @@
                 <div class = "form-group">
                     <h6>Question 2</h6>
                     <label for="Question2">I love animals!</label>
-                        <select class="form-control" id="Question2">
+                        <select class="form-control" id="question2" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -63,7 +63,7 @@
                 <div class = "form-group">
                     <h6>Question 3</h6>
                     <label for="Question3">I love sports!</label>
-                        <select class="form-control" id="Question3">
+                        <select class="form-control" id="question3" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -74,7 +74,7 @@
                 <div class = "form-group">
                     <h6>Question 4</h6>
                     <label for="Question4">I love hanging out with friends!</label>
-                        <select class="form-control" id="Question4">
+                        <select class="form-control" id="question4" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -85,7 +85,7 @@
                 <div class = "form-group">
                     <h6>Question 5</h6>
                     <label for="Question5">I love food!</label>
-                        <select class="form-control" id="Question5">
+                        <select class="form-control" id="question5" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -96,7 +96,7 @@
                 <div class = "form-group">
                     <h6>Question 6</h6>
                     <label for="Question6">I love challenging myself with new activities!</label>
-                        <select class="form-control" id="Question6">
+                        <select class="form-control" id="question6" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -107,7 +107,7 @@
                 <div class = "form-group">
                     <h6>Question 7</h6>
                     <label for="Question7">I do not get angry or impatient easily.</label>
-                        <select class="form-control" id="Question7">
+                        <select class="form-control" id="question7" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -118,7 +118,7 @@
                 <div class = "form-group">
                     <h6>Question 8</h6>
                     <label for="Question8">I do not find it difficult to express myself to new acquaintances.</label>
-                        <select class="form-control" id="Question8">
+                        <select class="form-control" id="question8" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -129,7 +129,7 @@
                 <div class = "form-group">
                     <h6>Question 9</h6>
                     <label for="Question9">I do not pretend to be someone I am not when meeting people for the fist time.</label>
-                        <select class="form-control" id="Question9">
+                        <select class="form-control" id="question9" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -140,7 +140,7 @@
                 <div class = "form-group">
                     <h6>Question 10</h6>
                     <label for="Question10">I love making new friends!</label>
-                        <select class="form-control" id="Question10">
+                        <select class="form-control" id="question10" name="score">
                             <option>1 (Strongly Disagree)</option>
                             <option>2</option>
                             <option>3</option>
@@ -148,11 +148,42 @@
                             <option>5 (Strongly Agree)</option>
                         </select>
                 </div>
-                <button class="btn" type="submit">Submit Answers!</button>
+                <button class="btn btn-primary btn-submit" type="submit">Submit Answers!</button>
             </form>
             
         </div>
     </div>
-	
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"     crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript">
+        $(".btn-submit").on("click",function(){
+            // var total = [];
+            // var score = 0;
+            // for(var i = 1; i < 11; i++)
+            // {
+            //     // console.log("Question " + i + " val: " + $("#Question" + i ).val());
+            //     if($("#Question" + i ).val() == "1 (Strongly Disagree)")
+            //     {
+            //         score = 1;
+            //         total.push(score);
+            //     }
+            //     else if($("#Question" + i ).val() == "5 (Strongly Agree)")
+            //     {
+            //         score = 5;
+            //         total.push(score);
+            //     }
+            //     else
+            //     {
+            //         total.push(parseInt($("#Question" + i ).val()));
+            //     }
+            // }
+            // console.log(total);            
+            $("form").attr("method","POST");
+            $("form").attr("action","/results");
+            $("form").submit();
+        })
+    </script>
 </body>
 </html>
