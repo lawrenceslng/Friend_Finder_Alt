@@ -57,6 +57,7 @@ app.post('/results', function(req, res) {
   var totalScore = 0;
   var score = 0;
   console.log(req.body);
+  var user = req.body;
   // res.json(req.body);
   for(var i = 0; i < 10; i++)
   {
@@ -123,7 +124,7 @@ app.post('/results', function(req, res) {
           // }
       }
       // console.log(closestMatch);
-      res.render('pages/result', {data: [closestMatch]});
+      res.render('pages/result', {data: [closestMatch, user]});
     });
   });
   
@@ -136,5 +137,15 @@ app.get("/users", function(req, res) {
     res.json(results);
   });
 });
+
+// app.post("/success", function(req, res) {
+//   console.log(req.body);
+  // connection.query('INSERT INTO users (full_name, email, score) VALUES (?,?,?)', [req.body.full_name,req.body.email,total.toString()],function(error, results, fields){
+  //   if(error) throw error;
+  //   console.log(results[0].score.split(","));
+  //   res.json(results);
+  // });
+//   res.send(req.body);
+// });
 
 app.listen(3000);
