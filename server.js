@@ -78,81 +78,63 @@ app.post('/results', function(req, res) {
     }
   }
   console.log(total);
+  console.log(total.toString());
   for(var i = 0; i < total.length; i++)
   {
     totalScore += total[i];
   }
   console.log(totalScore);
-  connection.query('INSERT INTO users (full_name, email, total_score) VALUES (?,?,?)', [req.body.full_name,req.body.email,totalScore],function(error, results, fields){
-    if (error) throw error;
-    console.log(results.insertId);
+  // connection.query('INSERT INTO users (full_name, email, score) VALUES (?,?,?)', [req.body.full_name,req.body.email,total.toString()],function(error, results, fields){
+  //   if (error) throw error;
+    // console.log(results.insertId);
     // connection.query('INSERT INTO scores  VALUES (?,?,?)', [results.insertId,req.body.email,totalScore],function(error, results, fields){
   //   if (error) throw error;
   // });
-    //Loop through database and calculate difference in score between current user and all other users
-    connection.query('SELECT full_name,email,total_score FROM users' ,function(error, results, fields){
+    // Loop through database and calculate difference in score between current user and all other users
+    connection.query('SELECT full_name,email,score FROM users' ,function(error, results, fields){
       if(error) throw error;
       console.log(results);
-      var diff = 0;
+      console.log(results.length);
+      var totalDifference = 0;
       var currentDiff = 50;
       var closestMatch = "";
-      for(var i = 0; i < results.length-1; i++)
+      var scoreArr;
+      for(var i = 0; i < results.length; i++)
       {
-          diff = Math.abs(results[i].total_score - totalScore);
-          console.log(diff);
-          if(diff < currentDiff)
+          scoreArr = results[i].score.split(",");
+          console.log(scoreArr);
+          for(var j = 0; j < total.length; j++)
           {
-            console.log("changing closest match to: " + results[i].full_name);
-            closestMatch =  results[i];
-            currentDiff = diff;
+            totalDifference = totalDifference + Math.abs(parseInt(scoreArr[j]) - total[j]);
           }
+          console.log("Total Difference is " + totalDifference);
+          if(totalDifference < currentDiff)
+          {
+              console.log("changing closest match to: " + results[i].full_name);
+              closestMatch =  results[i];
+              currentDiff = totalDifference;
+          }
+          totalDifference = 0;
+          // diff = Math.abs(results[i].total_score - totalScore);
+          // console.log(diff);
+          // if(diff < currentDiff)
+          // {
+         
+          // }
       }
-      console.log(closestMatch);
-      res.render('pages/result', {data: [closestMatch, totalScore]});
+      // console.log(closestMatch);
+      res.render('pages/result', {data: [closestMatch]});
     });
   });
-});
+  
+// });
 
 app.get("/users", function(req, res) {
   connection.query('SELECT * FROM users' ,function(error, results, fields){
     if(error) throw error;
+    console.log(results[0].score.split(","));
     res.json(results);
   });
 });
 
-app.post('/results_2', function(req, res) {
-  var total = [];
-  var score = 0;
-  console.log(req.body);
-  // res.json(req.body);
-  for(var i = 0; i < 10; i++)
-  {
-    if(req.body.score[i] == "1 (Strongly Disagree)")
-    {
-      console.log("change to 1");
-      score = 1;
-      total.push(score);
-    }
-    else if(req.body.score[i] == "5 (Strongly Agree)")
-    {
-      console.log("change to 1");
-      score = 5;
-      total.push(score)
-    }
-    else
-    {
-      total.push(parseInt(req.body.score[i]));
-    }
-  }
-  console.log(total);
-  // for(var i = 0; i < total.length; i++)
-  // {
-  //   totalScore += total[i];
-  // }
-  // console.log(totalScore);
-  connection.query('INSERT INTO users_2 (full_name, email, score) VALUES (?,?,?)', [req.body.full_name,req.body.email,total],function(error, results, fields){
-    if (error) throw error;
-    
-  });
-});
 app.listen(3000);
